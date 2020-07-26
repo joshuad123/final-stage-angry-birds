@@ -50,6 +50,7 @@ function draw(){
     if(backgroundImg != undefined){
         background(backgroundImg);
     }
+    console.log(bird.body.speed)
     textSize(30);
     text("score:"+score,900,50)
     Engine.update(engine);
@@ -90,8 +91,11 @@ function mouseReleased(){
 }
 
 function keyPressed(){
-    if(keyCode === 32){
-       // slingshot.attach(bird.body);
+    if(keyCode === 32 && bird.body.speed<1 || keyCode === 32 && bird.body.speed>20){
+       slingshot.attach(bird.body);
+       gameState="onSling";
+       bird.trajectory=[];
+       Matter.Body.setPosition(bird.body,{x:200,y:50})
     }
 }
 
