@@ -50,6 +50,8 @@ function draw(){
     if(backgroundImg != undefined){
         background(backgroundImg);
     }
+    else{
+        background(black);}
     console.log(bird.body.speed)
     textSize(30);
     text("score:"+score,900,50)
